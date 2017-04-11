@@ -1,0 +1,18 @@
+<div class="container text-center">
+  <h1>TASKS MANAGER</h1>
+  <br>
+  <% @tasks.each do |task| %>
+    <h3><b><%= task.name %></b><h3>
+    <ul class="list-inline">
+      <li><h5><%= link_to "See this task", task_path(task) %></h5></li>
+      <li><h5><%= link_to "Edit this task", edit_task_path(task) %></h5></li>
+      <li>
+        <h5><%= link_to "Delete this task", task_path(task),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %></h5>
+      </li>
+    </ul>
+  <% end %>
+  <br>
+  <h4><b><%= link_to "Add a new task!", new_task_path %></b><h4>
+</div>
